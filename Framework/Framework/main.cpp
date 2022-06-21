@@ -166,11 +166,10 @@ int main(void)
 		system("cls");
 
 		for (int i = 0; i < 2; ++i)
+		{
 			p[i]->Update();
-
-		for (int i = 0; i < 2; ++i)
 			p[i]->Output();
-	
+		}
 
 	}
 
