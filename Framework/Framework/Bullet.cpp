@@ -14,3 +14,8 @@ void Bullet::Output()
 {
 	cout << m_Number << endl;
 }
+
+// int Bullet::Get()
+// {
+// 	return m_Number;
+// }

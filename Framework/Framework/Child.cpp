@@ -14,3 +14,8 @@ void Child::Output()
 {
 	 cout << m_Number << endl;
 }
+
+// int Child::Get()
+// {
+// 	return 0;
+// }

@@ -11,3 +11,8 @@ void Parent::Output()
 		cout << m_Number << endl;
 }
 */
+
+int Parent::Get()
+{
+	return m_Number;
+}

@@ -7,5 +7,6 @@ public:
 	void Initialize();
 	void Update();
 	void Output();
+	// int Get();
 };
 

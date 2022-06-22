@@ -14,6 +14,7 @@ public:
 	virtual void Initialize() = 0; // virtual 함수의 몸체가 없을때 사용할수 있고
 	virtual void Update() = 0;
 	virtual void Output() = 0;
+	 int Get() ;
 	
 	// 설띵
 	/*
