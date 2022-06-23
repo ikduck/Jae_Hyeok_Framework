@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\Parant\Bullet">
       <UniqueIdentifier>{6ad7e872-928b-4056-9b01-93b19afeb316}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\include">
+      <UniqueIdentifier>{5a99487f-89a4-4e2a-9396-2cea85c5dead}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>소스 파일\Parant\Bullet</Filter>
     </ClCompile>
+    <ClCompile Include="note.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
@@ -49,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>소스 파일\Parant\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Constent.h">
+      <Filter>헤더 파일\include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

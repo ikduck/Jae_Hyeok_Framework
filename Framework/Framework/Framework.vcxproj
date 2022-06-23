@@ -142,11 +142,13 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Child.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="note.cpp" />
     <ClCompile Include="Parent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Child.h" />
+    <ClInclude Include="Constent.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="Parent.h" />
   </ItemGroup>
