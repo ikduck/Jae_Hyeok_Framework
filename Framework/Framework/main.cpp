@@ -14,7 +14,7 @@
 	so! 싱글톤은 하나만 만들어야하기 때문에 생성자를 private에 넣음
 */
 
-// 싱글톤으로 사용하기
+// 싱글톤으로 
 /*
 class Singleton // 관리자로 사용함
 {
@@ -44,7 +44,7 @@ public:
 
 };
 
-Singleton* Singleton::Instance = nullptr;
+//Singleton* Singleton::Instance = nullptr;
 */
 
 int main(void)
@@ -132,7 +132,23 @@ int main(void)
 	// Main.Release(); //를 여기가아닌 소멸자에 작성함
 	*/
 
+	MainUpdate Main;
+	Main.Initialize();
 
+	ULONGLONG Time = GetTickCount64(); // 1 / 1000
+
+	while (true)
+	{
+		if (Time + 50 < GetTickCount64())
+		{
+			Time = GetTickCount64();
+
+			system("cls");
+
+			Main.Update();
+			Main.Render();
+		}
+	}
 
 
 	return 0;

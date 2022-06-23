@@ -1,5 +1,7 @@
 #include "SceneManager.h"
 
+SceneManager* SceneManager::Instance = nullptr;
+
 SceneManager::SceneManager()
 {
 }
@@ -7,14 +9,8 @@ SceneManager::SceneManager()
 SceneManager::~SceneManager()
 {
 }
-/*
-const LOGO = 0;
-const MENU = 0;
-const STAGE = 0;
-const EXIT = 0;
-*/
-// SCENEID _SceneState
-void SceneManager::SetScene()
+
+void SceneManager::SetScene(int _SceneState)
 {
 	switch (_SceneState)
 	{
@@ -35,4 +31,6 @@ void SceneManager::SetScene()
 		break;
 
 	}
+	system("pause");
+
 }

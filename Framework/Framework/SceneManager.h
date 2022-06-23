@@ -16,12 +16,12 @@ public:
 		return Instance;
 	}
 private:
-	SCENEID SceneState;
+	//SCENEID SceneState;
 public:
 	// 1. 씬은 많이 호출되지않음
 	// 2. 씬이 바뀐다는 것은 로직이 다 끝난후 넘어가기 때문에
 	// 인라인으로 만들 필요가없음
-	void SetScene(SCENEID _SceneState);
+	void SetScene(int _SceneState);  // SCENEID _SceneState
 private:
 	SceneManager();
 
