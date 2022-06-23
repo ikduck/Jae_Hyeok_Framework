@@ -11,5 +11,7 @@
 #include <list>
 #include <map>
 #include "Constent.h"
+#include "Enum.h"
 
 using namespace std;
+

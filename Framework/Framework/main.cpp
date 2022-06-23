@@ -54,6 +54,7 @@ int main(void)
 	Singleton::GetInstance()->SetNumber(10);
 	cout << Singleton::GetInstance()->GetNumber() << endl;
 	*/
+
 	// 타이머
 	/*
 	// 과거에 사용하던 방식(32비트) 
@@ -130,6 +131,8 @@ int main(void)
 	 }
 	// Main.Release(); //를 여기가아닌 소멸자에 작성함
 	*/
+
+
 
 
 	return 0;
