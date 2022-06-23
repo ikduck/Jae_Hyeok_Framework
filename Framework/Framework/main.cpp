@@ -1,62 +1,138 @@
-#define _CRT_SECURE_NO_WARNINGSS // 정적함수
-#include "Parent.h"
-#include "Child.h"
-#include "Bullet.h"
+// *** Framework_v1.0
+#define _CRT_SECURE_NO_WARNINGS
+#include "Headers.h"
+#include "MainUpdate.h"
+// #include <time.h> // 1초단위로 설정됨
 
-// *** 11. 포인터 (복습) & 캡슐화
+// roop 를 도는 기준 (실행되는 순서는 결정되어있다.)
+
+// *** 싱글톤(Singleton)
 /*
-// ** 캡슐화 : 데이터(변수)와 기능(함수)을 하나의 구조(클래스)로 묶는 과정 
+	1. 장소에 구애없이 막 가져다 쓸수있게 만들어야함
+	2. 싱글톤은 관리자의 개념으로 사용하기 때문에 데이터는 한군데에만 있어야함
 
-// 추상성 : virtual
-
-// ** [포인터]
-// ** 1. * 데이터, & 주소반환연산자  
-// ** 2. 포인터변수 라면 [동적할당]  
-// ** 3.  클래스 & 구조체는 [ . ] (아니면) , [->] (화살표)로 접근
-// ** 4. [동적할당] 했다면 반드시 [할당해제] ( 냉장고 문열어놓고 안닫고 가는거랑 같은 것)
-//	자바와 C#는 garbage collection이 있어서 할당해제 안해줘도 해제해주지만 파이썬과 c,c++에는 없다. (청소부의 유무를 생각하면됨)
-//	대신 사용자가 원할때 즉시 소각할수 없다. 
-// 생산과 삭제가 많은 데이터를 소모하는데 이때 garbage collection는 가득차야지 소각을 해서 잠깐의 렉을 유발할수 있음
-// 대체 방법이 있지만 효율이 떨어질수도있다.
-// 위와 같은 이유때문에 자바와C#의 장점은 쉽다는 것이고 c,c++은 효율적이고 빠르다
-// 메모리 누수 : 스카이림에 로그 많이 남아서 게임 점점 느려지는것과 같음
-
-//** 인라인(liline) 
-// 인라인(inline) -> 함수가 우선 실행될수 있도록 도와줌, 빠르게 실행됨(대기열이 줄어듬) // 대기열에 우선적으로 올리는 것들
-// 클래스 내부에 함수의 기능을 적었을때 인라인 함수가 됨 : 성능의 효율성을 기대하기 어렵다.
-// ex) 데이터 해제(공간확보), 데이터 생성
-
-// ** const <= 상수화 키워드 : 다른 프로그래머들에게 알려주기위함
-
-// ** & 연산자 
-// 1. 이항연산일때 && 논리 연산자로 이루어져있어 true false 존재하느냐 안하느냐로 이뤄짐
-// 2. 이향연산자 & 일때는 비트 연산자 (plc와 같은 기능으로 입력 신호를 받았을때 동작이 있는지 확인하는 형태로 사용함)
-// 3. 단항 연산자 앞쪽에 쓰이면 주소반환 연산자로 사용됨
-// 4. 래퍼런스 연산자 -> 주소값 그자체를 가져오는것
+	so! 싱글톤은 하나만 만들어야하기 때문에 생성자를 private에 넣음
 */
 
+// 싱글톤으로 사용하기
+/*
+class Singleton // 관리자로 사용함
+{
+private:
+	// static 정적형태
+	// 정적과 동적은 반대되는 개념이 아니라 서로다른 기능임
+	static Singleton* Instance;
+public:
+	static Singleton* GetInstance()
+	{
+		if (Instance == nullptr)
+		{
+			Instance = new Singleton; // Instance = new Singleton();이 정석이지만 c에서는 생략해도 ()자동으로 추가해줌 
+		}
+		return Instance;
+	}
+private:
+	int Number;
+public:
+	int GetNumber() const { return Number; }
+	void SetNumber(const int& _Number) { Number = _Number; }
+private: 
+	Singleton() : Number(0) {}
+
+public: 
+	~Singleton() {}
+
+};
+
+Singleton* Singleton::Instance = nullptr;
+*/
 
 int main(void)
 {
-	// 스택 영역      /     힙 영역
-	Parent* pParent = new Child;
-	delete pParent;
-	// 힙 영역에 선언한 주소를 스택영역에 넘겨줌
-	// new하고 delete를 하지 않으면 데이터 누수가 일어남
-	
-	// pParent->Initialize();
-
-	// 데이터 동적할당
+	// 싱글톤으로 만들기
 	/*
-	int* Number;
-	Number = (int*)malloc(sizeof(int) * 4);
-	free(Number);
+	Singleton::GetInstance()->SetNumber(10);
+	cout << Singleton::GetInstance()->GetNumber() << endl;
 	*/
+	// 타이머
+	/*
+	// 과거에 사용하던 방식(32비트) 
+	//DWORD dwTime = GetTickCount();
+
+	// 현재시간을 반환하는 함수
+	// 1/1000 프로그램을 무한정 사용할 수 없다 그래서 정기 정검을 하는거임 최대한 2~3개월정도. 
+	// GetTickCount() 대략 49일
+	// GetTickCount64() 5억년? 뉴럴링크 쓰면 5억년 살수있음?
+	// 0에서 시작하는게 아니라  GetTickCount64()값을 Time에 넣어줌 (cpu실행 시간) 
+	// ULONGLONG Time = GetTickCount64(); 
+	 
+	 MainUpdate Main;
+	 Main.Initialize();
+	 
+	 //int Count = 0;
+	 //char* Array[30];
+	 
+	for (int y = 0; y < 30; ++y)
+	{
+		for (int x = 0; x < 30; ++x)
+		{
+			Array[y][x] = (char*)"*";
+		}
+
+	}
+	
+	// 
+	for (int y = 0; y < 30; ++y)
+	{
+	
+		for (int x = 0; x < 30; ++x)
+		{
+			Array[y][x] = (char*)"*";
+		}
+		
+		Array[y] = (char*)"******************************************************************************************" ;
+	}
+	
+	 
+	 while (true)
+	 {
+	 	// 프레임 제어
+	 	// 1초마다 바뀌게 하고싶으면 + 999로 바꿔주면됨
+	 	if (Time + 50 < GetTickCount64())
+	 	{
+	 		Time = GetTickCount64();
+	 
+	 		// 병목현상이 생김
+	 		system("cls");
+	 
+	 		// cout << Count++ << endl;
+	 		
+			for (int y = 0; y < 30; ++y)
+			{
+					for (int x = 0; x < 30; ++x)
+					{
+						cout << Array[y][x];
+					}
+					cout << endl;
+			}
+			
+	 		
+			for (int y = 0; y < 30; ++y)
+			{
+				cout << Array[y]<<endl;
+			}
+			
+	 
+	 		Main.Update();
+	 		Main.Render();
+	 
+	 	}
+	 }
+	// Main.Release(); //를 여기가아닌 소멸자에 작성함
+	*/
+
 
 	return 0;
 }
 
-// 추가 설명
-/*
-// 2의 보수 배열[30] 32에 2의 보수후 32 + -2 로 계산
-*/
+// 네임스페이스 : 내부 식별자

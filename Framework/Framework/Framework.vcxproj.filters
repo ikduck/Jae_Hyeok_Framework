@@ -13,51 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Parant">
-      <UniqueIdentifier>{278a8b2e-82a1-43f8-b086-b5c1b9399bc2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Parant\Child">
-      <UniqueIdentifier>{8eefa471-b443-4ac5-99a3-dd3af595f949}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Parant\Bullet">
-      <UniqueIdentifier>{6ad7e872-928b-4056-9b01-93b19afeb316}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일\include">
       <UniqueIdentifier>{5a99487f-89a4-4e2a-9396-2cea85c5dead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\MainUpdate">
+      <UniqueIdentifier>{48647657-c90f-479c-b622-777b1d9b9e03}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Child.cpp">
-      <Filter>소스 파일\Parant\Child</Filter>
-    </ClCompile>
-    <ClCompile Include="Parent.cpp">
-      <Filter>소스 파일\Parant</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>소스 파일\Parant\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="note.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainUpdate.cpp">
+      <Filter>소스 파일\MainUpdate</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Child.h">
-      <Filter>소스 파일\Parant\Child</Filter>
-    </ClInclude>
-    <ClInclude Include="Parent.h">
-      <Filter>소스 파일\Parant</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>소스 파일\Parant\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="Constent.h">
       <Filter>헤더 파일\include</Filter>
+    </ClInclude>
+    <ClInclude Include="MainUpdate.h">
+      <Filter>소스 파일\MainUpdate</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
