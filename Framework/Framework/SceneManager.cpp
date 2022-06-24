@@ -31,6 +31,5 @@ void SceneManager::SetScene(int _SceneState)
 		break;
 
 	}
-	system("pause");
-
+	Sleep(500);
 }
