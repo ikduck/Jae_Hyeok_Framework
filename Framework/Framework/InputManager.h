@@ -19,9 +19,13 @@ public:
 		return Instance;
 	}
 
+	DWORD GetKey() const { return Key; }
+
 	void Inputkey();
 
 	~InputManager();
 
 };
 
+// const 를 사용하지 못할때
+// 대입연산자(=)를 사용할때 static을 사용할때
