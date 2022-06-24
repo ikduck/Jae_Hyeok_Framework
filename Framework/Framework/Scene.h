@@ -3,6 +3,7 @@
 
 class Scene
 {
+
 protected:
 	string str;
 
