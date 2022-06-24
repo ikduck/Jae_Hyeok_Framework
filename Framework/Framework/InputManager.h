@@ -8,6 +8,7 @@ private:
 	InputManager();
 
 	// m_ 멤버변수의 dw Dword m_dwKey;
+	// Key 값을 가지고 있기 위해서 싱글톤으로 만듦
 	DWORD Key;
 public:
 	static InputManager* GetInstance()
@@ -21,7 +22,7 @@ public:
 
 	DWORD GetKey() const { return Key; }
 
-	void Inputkey();
+	void Inputkey(); 
 
 	~InputManager();
 

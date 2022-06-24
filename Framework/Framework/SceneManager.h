@@ -8,7 +8,7 @@ class SceneManager
 {
 private:
 
-	static SceneManager* Instance;
+	static SceneManager* Instance;   // 변수 선언 후 꼭 초기화 해줘야함 go cpp
 public:
 	static SceneManager* GetInstance()
 	{
@@ -19,8 +19,8 @@ public:
 		return Instance;
 	}
 private:
-	// 있는 척만하고 안쓸거임
-	Scene* SceneState;
+	// 있는 척만하고 안쓸거임 초기화해야함
+	Scene* SceneState; 
 public:
 	void SetScene(SCENEID _SceneState);  // SCENEID _SceneState
 	void Update();

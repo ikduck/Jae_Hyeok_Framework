@@ -10,6 +10,6 @@ public:
 	virtual void Release()override;
 
 	Menu();
-	~Menu();
+	virtual  ~Menu();
 };
 

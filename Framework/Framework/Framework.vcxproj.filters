@@ -16,9 +16,6 @@
     <Filter Include="헤더 파일\include">
       <UniqueIdentifier>{5a99487f-89a4-4e2a-9396-2cea85c5dead}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\MainUpdate">
-      <UniqueIdentifier>{48647657-c90f-479c-b622-777b1d9b9e03}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\99. Manager">
       <UniqueIdentifier>{e08ad44b-0196-4e49-ad42-0991e298a2af}</UniqueIdentifier>
     </Filter>
@@ -40,6 +37,18 @@
     <Filter Include="소스 파일\01.Scene\Stage">
       <UniqueIdentifier>{464ce410-8f73-4582-b543-22cd43fa8241}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object">
+      <UniqueIdentifier>{9f33e194-1932-4eef-8478-347eec2fbe8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Player">
+      <UniqueIdentifier>{9c0c44ec-656e-4867-8614-47a6c4820311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy">
+      <UniqueIdentifier>{5b26e50d-7507-4811-b6f7-dfbfb8b49493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. MainUpdate">
+      <UniqueIdentifier>{48647657-c90f-479c-b622-777b1d9b9e03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -49,7 +58,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="MainUpdate.cpp">
-      <Filter>소스 파일\MainUpdate</Filter>
+      <Filter>소스 파일\00. MainUpdate</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>소스 파일\99. Manager\SceneManager</Filter>
@@ -69,6 +78,15 @@
     <ClCompile Include="Scene.cpp">
       <Filter>소스 파일\01.Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>소스 파일\02. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\02. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>소스 파일\02. Object\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers.h">
@@ -78,7 +96,7 @@
       <Filter>헤더 파일\include</Filter>
     </ClInclude>
     <ClInclude Include="MainUpdate.h">
-      <Filter>소스 파일\MainUpdate</Filter>
+      <Filter>소스 파일\00. MainUpdate</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>소스 파일\99. Manager\SceneManager</Filter>
@@ -100,6 +118,18 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>소스 파일\01.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>소스 파일\02. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>소스 파일\02. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 파일\02. Object\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,3 +3,5 @@
 Scene::Scene() { }
 
 Scene::~Scene() { }
+
+Scene::Scene(string _str) : str(_str) { }

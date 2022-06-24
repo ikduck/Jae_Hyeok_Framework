@@ -6,7 +6,6 @@ Menu::Menu() { }
 
 Menu::~Menu() { }
 
-
 void Menu::Initialize()
 {
 }
@@ -24,7 +23,6 @@ void Menu::Update()
 void Menu::Render()
 {
 	cout << "MENU" << endl;
-
 }
 
 void Menu::Release()

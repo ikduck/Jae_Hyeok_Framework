@@ -23,7 +23,8 @@ void Stage::Update()
 
 void Stage::Render()
 {
-	cout << "STAGE" << endl;
+	//cout << "STAGE" << endl;
+	Message("STAGE");
 }
 
 void Stage::Release()

@@ -15,25 +15,26 @@ void SceneManager::SetScene(SCENEID _SceneState)
 	// 값을 이미 가지고 있을때 초기화 해줌
 	if (SceneState != nullptr)
 	{
-		delete SceneState;
-		SceneState = nullptr;
+		::Safe_Delete(SceneState);
+		// delete SceneState;
+		// SceneState = nullptr;
 	}
 
 	switch (_SceneState)
 	{
-	case LOGO:
+	case SCENEID::LOGO:
 		SceneState = new Logo;
 		break;
 
-	case MENU:
+	case SCENEID::MENU:
 		SceneState = new Menu;
 		break;
 
-	case STAGE:
+	case SCENEID::STAGE:
 		SceneState = new Stage;
 		break;
 
-	case EXIT:
+	case SCENEID::EXIT:
 		exit(NULL);
 		break;
 
@@ -56,6 +57,9 @@ void SceneManager::Render()
 
 void SceneManager::Release()
 {
-	delete SceneState;
-	SceneState = nullptr;
+	::Safe_Delete(SceneState);
+	// 아래의 코드를 줄여줌
+	// 	::를 앞에써주면 인라인
+	//delete SceneState;
+	//SceneState = nullptr;
 }

@@ -6,8 +6,6 @@ InputManager* InputManager::Instance = nullptr;
 InputManager::InputManager() : Key(0) { }
 InputManager::~InputManager() { }
 
-
-
 void InputManager::Inputkey()
 {
 	Key = 0;
