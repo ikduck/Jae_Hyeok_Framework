@@ -8,8 +8,8 @@ MainUpdate::~MainUpdate() { Release(); }
 
 void MainUpdate::Initialize()
 {
-	SceneState = LOGO;
-	SceneManager::GetInstance()->SetScene(SceneState);
+	// SceneState = LOGO;
+	SceneManager::GetInstance()->SetScene(LOGO);
 }
 
 void MainUpdate::Update()
@@ -28,7 +28,8 @@ void MainUpdate::Update()
 
 
 	InputManager::GetInstance()->Inputkey();
-
+	SceneManager::GetInstance()->Update();
+	/*
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_UP)
@@ -46,8 +47,13 @@ void MainUpdate::Update()
 	if (dwKey & KEY_SPACE)
 		cout << "KEY_SPACE" << endl;
 
-	if (dwKey & KEY_ENTER)
+	//	if (dwKey & KEY_ENTER)
 		// cout << "KEY_ENTER" << endl;
+
+	if (dwKey & KEY_ENTER)
+	{
+			SceneManager::GetInstance()->SetScene(LOGO);
+	}
 
 	if (dwKey & KEY_LCTRL)
 		cout << "KEY_LCTRL" << endl;
@@ -60,22 +66,14 @@ void MainUpdate::Update()
 
 	// if (dwKey & KEY_RALT)
 	// 	cout << "KEY_RALT" << endl;
+	*/
 
-
-	if (dwKey & KEY_ENTER)
-	{
-		// Count = 0;
-		SceneState++;
-		SceneManager::GetInstance()->SetScene(SceneState);
-		if (SceneState > EXIT)
-		{
-			SceneState = 0;
-		}
-	}
+	
 }
 
 void MainUpdate::Render()
 {
+	SceneManager::GetInstance()->Render();
 }
 
 void MainUpdate::Release()
@@ -83,3 +81,6 @@ void MainUpdate::Release()
 }
 
 
+// 핸들 
+// (마우스 좌표 = 윈도우 좌표)
+// 아스키 아트

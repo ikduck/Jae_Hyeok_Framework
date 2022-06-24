@@ -1,5 +1,5 @@
 #pragma once
-/*
+
 enum SCENEID
 {
 	LOGO,
@@ -8,4 +8,3 @@ enum SCENEID
 	EXIT,
 	// 위는 상수
 };
-*/
