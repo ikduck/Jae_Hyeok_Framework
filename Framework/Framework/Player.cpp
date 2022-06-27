@@ -3,10 +3,12 @@
 
 Player::Player()
 		: Horizontal(0), Vertical(0) { }
-Player::~Player() { }
+Player::Player(Transform _Info) : Object(_Info) { }
+Player::~Player() { Release(); }
 
 void Player::Initialize()
 {
+	strKey = "Player";
 	Horizontal;
 	Vertical;
 }
@@ -26,7 +28,7 @@ void Player::Update()
 
 	if (dwKey & KEY_RIGHT)
 		Horizontal += 1;
-
+	
 	/*
 	if (dwKey & KEY_SPACE)
 		cout << "KEY_SPACE" << endl;
@@ -41,6 +43,7 @@ void Player::Update()
 
 void Player::Render()
 {
+	cout << "Player " << endl;
 	cout << "X : " << Horizontal << endl;
 	cout << "Y : " << Vertical << endl;
 }

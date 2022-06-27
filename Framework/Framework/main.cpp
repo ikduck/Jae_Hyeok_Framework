@@ -1,4 +1,4 @@
-// *** Framework_v3.0
+// *** Framework_v4.2
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
@@ -26,4 +26,6 @@ int main(void)
 	return 0;
 }
 
+// Gof의 디자인 패턴
 // 상속 추상성 다형성 을 사용해서 객체만들기 
+// clone제외
