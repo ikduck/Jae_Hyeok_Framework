@@ -1,19 +1,16 @@
 #pragma once
-#include "Scene.h"
+#include "Object.h"
 
-class Object;
-class Stage : public Scene
+class Bullet : public Object
 {
-private:
-	Object* pPlayer;
-	list<Object*> pEnemyList;
 public:
 	virtual void Initialize()override;
 	virtual void Update()override;
 	virtual void Render()override;
 	virtual void Release()override;
 
-	Stage();
-	virtual ~Stage();
+	Bullet();
+	virtual ~Bullet();
+
 };
 

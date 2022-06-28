@@ -8,15 +8,16 @@ private:
 	int Vertical;
 public:
 	virtual void Initialize()override;
-	virtual void Update()override;
+	virtual int Update()override;
 	virtual void Render()override;
 	virtual void Release()override;
-	virtual Object* Clone()override
-	{
-		return new Player(*this);
-	}
+
+	// virtual Player Clone()override;
+	// {
+	// 	return new Object(*this);
+	// }
 
 	Player();
-	Player(Transform _Info);
+	Player(Transform _TransInfo);
 	virtual ~Player();
 };

@@ -17,3 +17,6 @@ const DWORD KEY_LCTRL	 = 64;	// LCONTROL
 const DWORD KEY_LALT		 = 128;  // LMENU
 // const DWORD KEY_RALT = 256;    // RMENU
 // const DWORD KEY_RCTRL = 512;	// RCONTROL
+
+
+const int BUFFER_OVER = 1;

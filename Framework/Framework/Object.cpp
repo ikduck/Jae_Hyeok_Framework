@@ -2,6 +2,6 @@
 
 Object::Object() { }
 
-Object::Object(Transform _Info) : TransInfo(){ }
+Object::Object(Transform _TransInfo) : TransInfo(_TransInfo) { }
 
 Object::~Object() { }
