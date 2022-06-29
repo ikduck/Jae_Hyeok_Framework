@@ -2,29 +2,38 @@
 #include "CursorManager.h"
 
 Bullet::Bullet() { }
-
+Bullet::Bullet(Transform _TransInfo) : Object(_TransInfo) { }
 Bullet::~Bullet() { }
 
 void Bullet::Initialize()
 {
-	strKey = "＊"; // 포인터아님 2바이트짜리 특수문자임
+	strKey = "Bullet"; // 포인터아님 2바이트짜리 특수문자임
+
+	Buffer[0] = (char*)"타";
+	Buffer[1] = (char*)"ㅇ";
 
 	TransInfo.Position = Vector3(0.0f, 0.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
-	TransInfo.Scale = Vector3(2.0f, 1.0f);
+	TransInfo.Scale = Vector3(2.0f, 2.0f);
 }
 
-void Bullet::Update()
+int Bullet::Update()
 {
 	TransInfo.Position.x += 2.0f;
+
+	return 0;
+
 }
 
 void Bullet::Render()
 {
-	CursorManager::Draw(
-		TransInfo.Position.x,
-		TransInfo.Position.y,
-		strKey);
+	for (int i = 0; i < MAX_SIZE; ++i)
+	{
+		CursorManager::Draw(
+			TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
+			TransInfo.Position.y - (TransInfo.Scale.x * 0.5f) + i,
+			Buffer[i]);
+	}
 }
 
 void Bullet::Release()

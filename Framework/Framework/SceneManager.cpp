@@ -14,11 +14,7 @@ void SceneManager::SetScene(SCENEID _SceneState)
 {
 	// 값을 이미 가지고 있을때 초기화 해줌
 	if (SceneState != nullptr)
-	{
 		::Safe_Delete(SceneState);
-		// delete SceneState;
-		// SceneState = nullptr;
-	}
 
 	switch (_SceneState)
 	{
@@ -39,27 +35,20 @@ void SceneManager::SetScene(SCENEID _SceneState)
 		break;
 
 	}
-	// 공통적으로 Logo , Menu 를 받던간에 초기화 해줘야해서 뺌
 	SceneState->Initialize();
 }
 
 void SceneManager::Update()
 {
-	//  받아온 값을 update 해줌
 	SceneState->Update();
 }
 
 void SceneManager::Render()
 {
-	// 받아온 값을 Render 해줌
 	SceneState->Render();
 }
 
 void SceneManager::Release()
 {
 	::Safe_Delete(SceneState);
-	// 아래의 코드를 줄여줌
-	// 	::를 앞에써주면 인라인
-	//delete SceneState;
-	//SceneState = nullptr;
 }

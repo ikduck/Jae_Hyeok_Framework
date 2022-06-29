@@ -7,30 +7,36 @@ Enemy::~Enemy() { }
 
 void Enemy::Initialize()
 {
-	strKey = "¡Ú";
+	strKey = "Enemy";
+
+	Buffer[0] = (char*)"È£";
+	Buffer[1] = (char*)"¤µ";
 
 	TransInfo.Position = Vector3(0.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f); 
- 	TransInfo.Scale = Vector3(2.0f, 1.0f);
+ 	TransInfo.Scale = Vector3(2.0f, 2.0f);
 }
 
 
 int Enemy::Update()
 {
-	TransInfo.Position.x -= 2;
+	// TransInfo.Position.x -= 2;
 	
-	if (TransInfo.Position.x <= 0)
-		return BUFFER_OVER;
+	 if (TransInfo.Position.x <= 0)
+	 	return BUFFER_OVER;
 
 	return 0;
 }
 
 void Enemy::Render()
 {
-	CursorManager::Draw(
-		TransInfo.Position.x, 
-		TransInfo.Position.y, 
-		strKey);
+	for (int i = 0; i < MAX_SIZE; ++i)
+	{
+		CursorManager::Draw(
+			TransInfo.Position.x - (TransInfo.Scale.x * 0.5f),
+			TransInfo.Position.y - (TransInfo.Scale.x * 0.5f) + i,
+			Buffer[i]);
+	}
 }
 
 void Enemy::Release()

@@ -31,42 +31,7 @@ void InputManager::Inputkey()
 	if (GetAsyncKeyState(VK_LCONTROL))
 		Key |= KEY_LCTRL;
 
-	// if (GetAsyncKeyState(VK_RCONTROL))
-	// 	Key |= KEY_RCTRL;
-
 	if (GetAsyncKeyState(VK_LMENU))
 		Key |= KEY_LALT;
 
-	// if (GetAsyncKeyState(VK_RMENU))
-	// 	Key |= KEY_RALT;
-
-	// 미국식 키보드 와 한국식 키보드의 입력이 달라서 RIGHT_CONTRL ,ALT가 안됨
-
-	// GetAsyncKeyState() : 키입력을 받아오는 함수
-	// Virtual Key _ Up = VK_UP
-	/*
-	if (GetAsyncKeyState(VK_UP))
-		cout << "KEY_UP" << endl;
-
-	if (GetAsyncKeyState(VK_DOWN))
-		cout << "KEY_DOWN" << endl;
-
-	if (GetAsyncKeyState(VK_LEFT))
-		cout << "KEY_LEFT" << endl;
-
-	if (GetAsyncKeyState(VK_RIGHT))
-		cout << "KEY_RIGHT" << endl;
-
-	if (GetAsyncKeyState(VK_SPACE))
-		cout << "KEY_SPACE" << endl;
-
-	if (GetAsyncKeyState(VK_RETURN))
-		cout << "KEY_RETURN" << endl;
-
-	if (GetAsyncKeyState(VK_CONTROL))
-		cout << "KEY_CONTROL" << endl;
-
-	if (GetAsyncKeyState(VK_MENU))
-		cout << "KEY_MENU" << endl;
-		*/
 }

@@ -1,39 +1,13 @@
 #pragma once
 #include "Headers.h"
 
-/*
 class Object;
 class ObjectManager
 {
 private:
 	static ObjectManager* Instance;
 	ObjectManager();
-	map<string, list<Object*>> ObjectList;
-public:
-	static ObjectManager* GetInstance()
-	{
-		if (Instance == nullptr)
-			Instance = new ObjectManager;
-
-		return Instance;
-	}
-	
-	void AddObject(Object* _Object);
-	list<Object*>* GetObjectList(string _strKey);
-	void Update();
-	void Render();
-
-	~ObjectManager();
-};
-*/
-
-class Object;
-class ObjectManager
-{
-private:
-	static ObjectManager* Instance;
-	ObjectManager();
-	map<string, list<Object*>> ObjectList;
+	map<string, list<Object*>> ObjectList;  //list ¼±¾ð
 public:
 	static ObjectManager* GetInstance()
 	{
@@ -49,5 +23,4 @@ public:
 	void Render();
 
 	~ObjectManager();
-
 };

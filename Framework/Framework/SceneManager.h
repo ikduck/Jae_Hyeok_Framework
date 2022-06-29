@@ -19,10 +19,9 @@ public:
 		return Instance;
 	}
 private:
-	// 있는 척만하고 안쓸거임 초기화해야함
 	Scene* SceneState; 
 public:
-	void SetScene(SCENEID _SceneState);  // SCENEID _SceneState
+	void SetScene(SCENEID _SceneState);  
 	void Update();
 	void Render();
 	void Release();

@@ -9,10 +9,7 @@ public:
 	virtual void Render()override;
 	virtual void Release()override;
 
-	 // virtual Enemy Clone()override;
-	 // {
-	 // 	return new Object(*this);
-	 // }
+	virtual Object* Clone()override { return new Enemy(*this); }
 
 	Enemy();
 	Enemy(Transform _TransInfo);

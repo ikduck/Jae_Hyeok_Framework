@@ -1,5 +1,5 @@
 #include "ObjectManager.h"
-
+#include "CollisionManager.h"
 #include "Object.h"
 
 ObjectManager* ObjectManager::Instance = nullptr;
@@ -39,31 +39,33 @@ void ObjectManager::Update()
 {
 	for (map<string, list<Object*>>::iterator iter = ObjectList.begin();
 		iter != ObjectList.end(); ++iter)
+	{
 		for (list<Object*>::iterator iter2 = iter->second.begin();
-			iter2 != iter->second.end(); ++iter2)
+			iter2 != iter->second.end(); )
+		{
+			int result = (*iter2)->Update();
+
+			if (result == BUFFER_OVER)
 			{
-				int reslut = (*iter2)->Update();
+				Object* Temp = *iter2;
+				iter2 = iter->second.erase(iter2);
 
-				if (reslut == BUFFER_OVER)
-				{
-					Object* Temp = *iter2;
-
-					iter2 = iter->second.erase(iter2);
-
-					delete(*iter2);
-					(*iter2) = nullptr;
-				}
-				else
-					++iter2;
+				delete Temp;
+				Temp = nullptr;
 			}
+			else
+				++iter2;
+		}
+	}
 }
 
 void ObjectManager::Render()
 {
 	for (map<string, list<Object*>>::iterator iter = ObjectList.begin();
 		iter != ObjectList.end(); ++iter)
+	{
 		for (list<Object*>::iterator iter2 = iter->second.begin();
 			iter2 != iter->second.end(); ++iter2)
 			(*iter2)->Render();
+	}
 }
-

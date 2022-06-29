@@ -7,22 +7,20 @@
 #include"Enemy.h"
 #include "Bullet.h"
 
-Logo::Logo() : Scene("") { }
+Logo::Logo() { }
 
 Logo::~Logo() { }
 
 void Logo::Initialize()
 {
-	str = "Logo";
-	
 	// 로고에서 왜 동적할당 해주고 초기화 하는 걸까?
 	Object* pPlayer = new Player;
 	pPlayer->Initialize();
-	// Object* eEnemy = new Enemy;
-	// eEnemy->Initialize();
+	Object* eEnemy = new Enemy;
+	eEnemy->Initialize();
 
 	ObjectManager::GetInstance()->AddObject(pPlayer);
-	// ObjectManager::GetInstance()->AddObject(eEnemy);
+	ObjectManager::GetInstance()->AddObject(eEnemy);
 }
 
 void Logo::Update()
@@ -37,7 +35,7 @@ void Logo::Update()
 
 void Logo::Render()
 {
-	cout << str << endl;
+	cout << "Logo" << endl;
 }
 
 void Logo::Release()

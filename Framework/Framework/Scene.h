@@ -3,10 +3,6 @@
 
 class Scene
 {
-
-protected:
-	string str;
-
 public:
 	virtual void Initialize()PURE;
 	virtual void Update()PURE;
@@ -14,7 +10,6 @@ public:
 	virtual void Release()PURE;
 
 	Scene();
-	Scene(string _str);
 	virtual ~Scene();
 };
 

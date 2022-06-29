@@ -20,3 +20,5 @@ const DWORD KEY_LALT		 = 128;  // LMENU
 
 
 const int BUFFER_OVER = 1;
+
+const int MAX_SIZE = 2;

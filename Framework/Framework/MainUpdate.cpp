@@ -8,24 +8,12 @@ MainUpdate::~MainUpdate() { Release(); }
 
 void MainUpdate::Initialize()
 {
-	// SceneState = LOGO;
+
 	SceneManager::GetInstance()->SetScene(LOGO);
 }
 
 void MainUpdate::Update()
 {
-	/*
-	++Count;
-	
-	if (Count > 10)
-	{
-		Count = 0;
-		SceneState++;
-	
-		SceneManager::GetInstance()->SetScene(SceneState);
-	}
-	*/
-
 	InputManager::GetInstance()->Inputkey();
 	SceneManager::GetInstance()->Update();
 }
@@ -37,10 +25,5 @@ void MainUpdate::Render()
 
 void MainUpdate::Release()
 {
-	// 동적할당을 하지 않아서 지울 것이 없음
 }
 
-// 핸들 
-// (마우스 좌표 = 윈도우 좌표)
-// 아스키 아트
-// 화면 깜빡임 문제는 나중에 익숙해지면 수리할거임
