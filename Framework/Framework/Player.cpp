@@ -4,7 +4,7 @@
 #include "Bullet.h"
 #include "ObjectManager.h"
 
-Player::Player() : Horizontal(0), Vertical(0) { }
+Player::Player() { }
 Player::Player(Transform _TransInfo) : Object(_TransInfo) { }
 Player::~Player() { }
 
