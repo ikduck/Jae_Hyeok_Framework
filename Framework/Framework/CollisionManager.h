@@ -27,22 +27,23 @@ public:
 		return false;
 		*/
 		
-		// 메이플
+		// 메이플 (사이드뷰)
+		
 		if (Position_A.x + (Scale_A.x  *  0.5f) > Position_B.x - (Scale_B.x * 0.5f) &&
 			Position_B.x + (Scale_B.x  *  0.5f) > Position_A.x - (Scale_A.x * 0.5f) &&
 			Position_A.y + (Scale_A.y * 0.5f) > Position_B.y - (Scale_B.y * 0.5f) &&
 			Position_B.y + (Scale_B.y * 0.5f) > Position_A.y - (Scale_A.y * 0.5f))
 			return true;
-
+			
+		// 던파 (횡스크롤)
+		/*
+			if ((Position_A.x + (Scale_A.x * 0.5f)) > (Position_B.x - (Scale_B.x * 0.5f)) &&
+			(Position_B.x + (Scale_B.x * 0.5f)) > (Position_A.x - (Scale_A.x * 0.5f)) &&
+			(Position_A.y + (Scale_A.y * 0.5f)) == (Position_B.y + (Scale_B.y * 0.5f)) )
+			return true;
+		*/
 		return false;
 	}
-	// 던파
-	/*
-	if (Position_A.x + Scale_A.x * 0.5f) > Position_B.x + (Scale_B.x * 0.5f) &&
-		Position_B.x + Scale_B.x * 0.5f) > Position_A.x + (Scale_A.x * 0.5f) &&
-		Position_A.x + Scale_A.x * 0.5f) == Position_B.x + (Scale_B.x * 0.5f))
-		return true;
-	*/
 public:
 
 };

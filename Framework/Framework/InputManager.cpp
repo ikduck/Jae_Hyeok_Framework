@@ -29,9 +29,12 @@ void InputManager::Inputkey()
 		Key |= KEY_ENTER;
 
 	if (GetAsyncKeyState(VK_LCONTROL))
-		Key |= KEY_LCTRL;
+		Key |= KEY_CTRL;
 
 	if (GetAsyncKeyState(VK_LMENU))
-		Key |= KEY_LALT;
+		Key |= KEY_ALT;
+
+	if (GetAsyncKeyState(VK_TAB))
+		Key |= KEY_TAB;
 
 }

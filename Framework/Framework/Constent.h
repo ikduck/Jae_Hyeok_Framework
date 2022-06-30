@@ -11,12 +11,11 @@ const DWORD KEY_DOWN  	 = 2;
 const DWORD KEY_LEFT	     = 4;
 const DWORD KEY_RIGHT	 = 8;
 const DWORD KEY_SPACE	 = 16;
-const DWORD KEY_ENTER	 = 32;    // RETURN
-const DWORD KEY_LCTRL	 = 64;	// LCONTROL
+const DWORD KEY_ENTER	 = 32;   
+const DWORD KEY_CTRL	 = 64;	
+const DWORD KEY_ALT		 = 128; 
+const DWORD KEY_TAB = 256;   
 
-const DWORD KEY_LALT		 = 128;  // LMENU
-// const DWORD KEY_RALT = 256;    // RMENU
-// const DWORD KEY_RCTRL = 512;	// RCONTROL
 
 
 const int BUFFER_OVER = 1;

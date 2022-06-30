@@ -61,6 +61,21 @@
     <Filter Include="소스 파일\99. Manager\CollisionManager">
       <UniqueIdentifier>{fd6f3f39-dc6f-4cae-9cf2-fe0be72cbb04}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\ObjectFactory">
+      <UniqueIdentifier>{321c3b25-a57c-4a05-aaab-6603f9a98403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\BackGround">
+      <UniqueIdentifier>{86020f69-ce8b-4a83-9e68-b7ecae25417b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Cloud">
+      <UniqueIdentifier>{90333aec-37c8-455c-9ad0-c352ed5b1747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. UserInterface">
+      <UniqueIdentifier>{79ebf7c9-297a-4e46-878b-1c2e17a8eeb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03. UserInterface\ScrollBox">
+      <UniqueIdentifier>{f7310942-58c4-4cf9-a064-f5f4266e7730}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -101,6 +116,18 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>소스 파일\02. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>소스 파일\02. Object\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Cloud.cpp">
+      <Filter>소스 파일\02. Object\Cloud</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.cpp">
+      <Filter>소스 파일\03. UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollBox.cpp">
+      <Filter>소스 파일\03. UserInterface\ScrollBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +187,21 @@
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>소스 파일\99. Manager\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>소스 파일\99. Manager\ObjectFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>소스 파일\02. Object\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Cloud.h">
+      <Filter>소스 파일\02. Object\Cloud</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterface.h">
+      <Filter>소스 파일\03. UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBox.h">
+      <Filter>소스 파일\03. UserInterface\ScrollBox</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

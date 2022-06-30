@@ -1,4 +1,4 @@
-// *** Framework_v7.2  (template <typename T>)
+// *** Framework_v7.2  (Ui, Scroll)
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
@@ -51,8 +51,8 @@ int main(void)
 
 int main(void)
 {
-
 	/*
+	*/
 	MainUpdate Main;
 	Main.Initialize();
 
@@ -70,7 +70,6 @@ int main(void)
 			Main.Render();
 		}
 	}
-	*/
  	return 0;
  }
 
