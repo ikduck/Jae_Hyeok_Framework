@@ -24,3 +24,4 @@ public:
 
 	~ObjectManager();
 };
+// 1번 홀수 2문제 앞장

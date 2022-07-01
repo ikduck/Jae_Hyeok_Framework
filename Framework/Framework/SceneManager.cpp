@@ -6,13 +6,11 @@
 #include "Stage.h"
 
 SceneManager* SceneManager::Instance = nullptr;
-
 SceneManager::SceneManager() : SceneState(nullptr) { }
 SceneManager::~SceneManager() { Release(); }
 
 void SceneManager::SetScene(SCENEID _SceneState)
 {
-	// 값을 이미 가지고 있을때 초기화 해줌
 	if (SceneState != nullptr)
 		::Safe_Delete(SceneState);
 

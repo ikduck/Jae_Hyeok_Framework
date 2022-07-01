@@ -76,6 +76,9 @@
     <Filter Include="소스 파일\03. UserInterface\ScrollBox">
       <UniqueIdentifier>{f7310942-58c4-4cf9-a064-f5f4266e7730}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Manager\MathManager">
+      <UniqueIdentifier>{186a88f4-fd55-4673-a50d-83b277d14c48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -176,9 +179,6 @@
     <ClInclude Include="ObjectManager.h">
       <Filter>소스 파일\99. Manager\ObjectManager</Filter>
     </ClInclude>
-    <ClInclude Include="Struct.h">
-      <Filter>헤더 파일\include</Filter>
-    </ClInclude>
     <ClInclude Include="CursorManager.h">
       <Filter>소스 파일\99. Manager\CursorManager</Filter>
     </ClInclude>
@@ -202,6 +202,12 @@
     </ClInclude>
     <ClInclude Include="ScrollBox.h">
       <Filter>소스 파일\03. UserInterface\ScrollBox</Filter>
+    </ClInclude>
+    <ClInclude Include="MathManager.h">
+      <Filter>소스 파일\99. Manager\MathManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일\include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
