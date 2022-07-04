@@ -19,6 +19,8 @@ void Player::Initialize()
 	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
+
+	Color = 15;
 }
 
 int Player::Update()
@@ -36,30 +38,24 @@ int Player::Update()
 
 	if (dwKey & KEY_RIGHT)
 		TransInfo.Position.x += 1;
-
+	
 	if (dwKey & KEY_SPACE)
 	{
 		// Object* pBullet = new Bullet;
 		// pBullet->Initialize();
 		// pBullet->SetPosition(TransInfo.Position);
-		// ObjectManager::GetInstance()->AddObject(pBullet);
-		
+		// ObjectManager::GetInstance()->AddObject(pBullet);   
+
 		ObjectManager::GetInstance()->AddObject(ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
 	}
-
 
 	return 0;
 }
 
 void Player::Render()
 {
-	for(int i =0; i < MAX_SIZE ; ++i)
-	{
-	CursorManager::Draw(
-		TransInfo.Position.x  - (TransInfo.Scale.x * 0.5f),
-		TransInfo.Position.y - (TransInfo.Scale.y* 0.5f) + i,
-		Buffer[i]);
-	}
+	CursorManager::GetInstance()->WriteBuffer(
+		TransInfo.Position, (char*)"ABCDEFG", Color);
 }
 
 void Player::Release()
