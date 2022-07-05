@@ -7,7 +7,8 @@ class ObjectManager
 private:
 	static ObjectManager* Instance;
 	ObjectManager();
-	map<string, list<Object*>> ObjectList;  //list 선언
+	// map<string, list<Object*>> ObjectList;  //list 선언
+	map<string, list<Object*>>* EnableList;
 public:
 	static ObjectManager* GetInstance()
 	{
@@ -24,4 +25,7 @@ public:
 
 	~ObjectManager();
 };
-// 1번 홀수 2문제 앞장
+
+// 비활성화 안쓰는애들 -> ObjectPool
+// C는 서버에 접근하는 것을 지원하지않아 만들어야함 유니티 , 언리얼은 구현되어있음
+
