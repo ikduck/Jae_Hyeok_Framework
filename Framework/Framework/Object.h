@@ -4,6 +4,10 @@
 class Object
 {
 protected:
+	// 어디에서든지 접근할수 있기 때문에 에러가 생기면 찾기 굉장히 어려움
+	// static을 사용한다는 지뢰를 하나 심는다고 생각하면됨(편한만큼 리스크가 크다)
+	// static list<Object*> BulletList;
+
 	Transform TransInfo;
 	string strKey;
 

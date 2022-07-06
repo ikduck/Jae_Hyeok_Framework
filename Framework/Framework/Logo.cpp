@@ -8,6 +8,8 @@
 #include "Bullet.h"
 
 #include "ObjectFactory.h"
+#include"CursorManager.h"
+
 Logo::Logo() { }
 
 Logo::~Logo() { }
@@ -18,7 +20,7 @@ void Logo::Initialize()
 	// Object* pPlayer = new Player;
 	// pPlayer->Initialize();
 	// ObjectManager::GetInstance()->AddObject(pPlayer);
-	ObjectManager::GetInstance()->AddObject(ObjectFactory<Enemy>::CreateObject());
+	// ObjectManager::GetInstance()->AddObject(ObjectFactory<Enemy>::CreateObject());
 	// Object* eEnemy = new Enemy;
 	// eEnemy->Initialize();
 	// ObjectManager::GetInstance()->AddObject(eEnemy);
@@ -36,10 +38,15 @@ void Logo::Update()
 
 void Logo::Render()
 {
-	cout << "Logo" << endl;
+	CursorManager::GetInstance()->WriteBuffer( 0 ,0, 
+	(char*) " ", 8
+
+	);
+	
 }
 
 void Logo::Release()
 {
 }
 
+//  !*****      ~*@@@@@;,            !!;      ,!!!!!!!!!!~    						  

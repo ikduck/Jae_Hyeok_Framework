@@ -48,6 +48,7 @@ void Stage::Update()
 	}
 	ObjectManager::GetInstance()->Update();
 
+	// stage에서 불러와서 사용하기 때문에 문제가 생기면 여기만 보면됨
 	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
@@ -75,7 +76,7 @@ void Stage::Update()
 			{
 				if (CollisionManager::Collision(pPlayer, *Enemyiter))
 				{
-					// CursorManager::Draw(50.0f, 1.0f, "충돌입니다.");
+					//CursorManager::Draw(50.0f, 1.0f, "충돌입니다.");
 				}
 
 				if (pBulletList != nullptr)
@@ -85,7 +86,7 @@ void Stage::Update()
 					{
 						if (CollisionManager::Collision(*Bulletiter, *Enemyiter))
 						{
-							// CursorManager::Draw(50.0f, 1.0f, "충돌입니다.");
+
 						}
 					}
 				}

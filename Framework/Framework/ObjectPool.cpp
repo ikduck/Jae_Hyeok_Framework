@@ -1,6 +1,7 @@
 #include "ObjectPool.h"
 #include "Object.h"
-
+#include "CursorManager.h"
+#include "CollisionManager.h"
 ObjectPool* ObjectPool::Instance = nullptr;
 map<string, list<Object*>> ObjectPool::EnableList;
 ObjectPool::ObjectPool() { }
@@ -18,7 +19,7 @@ void ObjectPool::AddObject(Object* _Object)
 
 	iter->second.push_back(_Object);
 }
-*/
+*/ 
 
 void ObjectPool::Update()
 {
@@ -47,11 +48,13 @@ void ObjectPool::Update()
 					
 				(*iter).second.erase(iter2);
 			}
+			case 2:
+				CursorManager::GetInstance()->WriteBuffer(50.0f, 1.0f, (char*)"충돌입니다");
+				
 				break;
 
 			default:
 				++iter2;
-				break;
 			}
 		}
 	}

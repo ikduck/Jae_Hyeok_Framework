@@ -30,8 +30,8 @@ int Enemy::Update()
 
 void Enemy::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(
-		TransInfo.Position, (char*)"Enemy", 10);
+	// CursorManager::GetInstance()->WriteBuffer(
+	// 	TransInfo.Position, (char*)"Enemy", 10);
 }
 
 void Enemy::Release()
