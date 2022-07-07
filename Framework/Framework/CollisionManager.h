@@ -1,11 +1,11 @@
 #pragma once // 헤더끼리 겹쳐서 문제가 발생하는 것을 방지해줌
 #include "Headers.h"
 #include "Object.h"
-
+#include "MathManager.h"
 class CollisionManager
 {
 public:
-	static bool Collision( const Object* _ObjA , const Object* _ObjB)
+	static bool RectCollision( const Object* _ObjA , const Object* _ObjB)
 	{
 		// ** Position 받아옴
 		Vector3 Position_A = _ObjA->GetPosition();
@@ -44,6 +44,16 @@ public:
 		*/
 		return false;
 	}
-public:
+	static bool CircleCollision(const Object* _ObjA, const Object* _ObjB)
+	{
+		float Distance = MathManager::GetDistance(_ObjA->GetPosition(), _ObjB->GetPosition());
 
+		float sum = _ObjA->GetScale().x * 0.5f + _ObjB->GetScale().x * 0.5f;
+
+		if (Distance < sum)
+			return true;
+		
+		return false;
+	}
 };
+

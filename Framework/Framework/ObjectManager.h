@@ -9,6 +9,7 @@ private:
 	ObjectManager();
 	// map<string, list<Object*>> ObjectList;  //list ¼±¾ð
 	map<string, list<Object*>>* EnableList;
+
 public:
 	static ObjectManager* GetInstance()
 	{
@@ -20,6 +21,9 @@ public:
 
 	void AddObject(Object* Object);
 	list<Object*>* GetObjectList(string _Key);
+	list<Object*>::iterator ThrowObject(list<Object*>::iterator _Where, Object* _Object);
+
+
 	void Update();
 	void Render();
 

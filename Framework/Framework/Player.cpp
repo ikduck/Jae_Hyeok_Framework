@@ -41,11 +41,6 @@ int Player::Update()
 	
 	if (dwKey & KEY_SPACE)
 	{
-		// Object* pBullet = new Bullet;
-		// pBullet->Initialize();
-		// pBullet->SetPosition(TransInfo.Position);
-		// ObjectManager::GetInstance()->AddObject(pBullet);   
-
 		ObjectManager::GetInstance()->AddObject(ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
 	}
 
@@ -54,8 +49,13 @@ int Player::Update()
 
 void Player::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer(
-		TransInfo.Position, (char*)"ABCDEFG", Color);
+	for (int i = 0; i < 2; ++i)
+	{
+		CursorManager::GetInstance()->WriteBuffer(
+			TransInfo.Position.x,
+			TransInfo.Position.y + i,
+			Buffer[i], Color);
+	}
 }
 
 void Player::Release()

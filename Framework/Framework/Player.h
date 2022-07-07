@@ -3,8 +3,6 @@
 
 class Player : public Object
 {
-private:
-	char Color;
 public:
 	virtual void Initialize()override;
 	virtual int Update()override;

@@ -19,10 +19,9 @@ public:
 
 		return Instance;
 	}
-		
-	// void AddObject(string _Key, list<Object*> _List);
-	// void AddObject(Object* _Object);
+
 	static map<string, list<Object*>>* GetEnableList() { return &EnableList; }
+	void CatchObject(Object* _Object);
 	void Update();
 
 	~ObjectPool();
