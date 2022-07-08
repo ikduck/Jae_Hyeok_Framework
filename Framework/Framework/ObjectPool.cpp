@@ -25,28 +25,57 @@ void ObjectPool::CatchObject(Object* _Object)
 {
 	map<string, list<Object*>>::iterator Disableiter = DisableList.find(_Object->GetKey());
 
+	// DisableList이 마지막 지점일때 
 	if (Disableiter == DisableList.end())
 	{
+		// 새로운 공간 생성후 값 넣어줌
 		list<Object*> TempList;
 		TempList.push_back(_Object);
 		DisableList.insert(make_pair(_Object->GetKey(), TempList));
 	}
 	else
+		// 빈 공간에 값을 넣어줌
 		Disableiter->second.push_back(_Object);
+}
+
+Object* ObjectPool::ThrowObject(string _Key)
+{
+	// 키 복사해줌
+	map<string, list<Object*>>::iterator Disableiter = DisableList.find(_Key);
+
+	// DisableList.end() (키값이 존재하지 않을때) 거나
+	// Disableiter->second.size()가 0이면(Disableiter의 list에 원소가 없음) false가 되서 if문의 조건을 성립하지않음
+	if (Disableiter != DisableList.end() && Disableiter->second.size())
+	{
+		// pObject에 Disableiter의 제일첫 원소를 복사하고
+		Object* pObject = Disableiter->second.front();
+		// Disableiter의 제일첫 원소를 삭제
+		Disableiter->second.pop_front();
+
+		// 초기화
+		pObject->Initialize(_Key);
+		// pObject를 반환
+		return pObject;
+	}
+
+	// 조건이 없을시 동작하지 않음
+	return nullptr;
 }
 
 void ObjectPool::Update()
 {
+	// 화면에 출력
 	CursorManager::GetInstance()->WriteBuffer(85.0f, 0.0f, (char*)"DisableList : ");
 	CursorManager::GetInstance()->WriteBuffer(100.0f, 0.0f, DisableList["Bullet"].size());
 
 	CursorManager::GetInstance()->WriteBuffer(85.0f, 1.0f, (char*)"EnableList : ");
 	CursorManager::GetInstance()->WriteBuffer(100.0f, 1.0f, EnableList["Bullet"].size());
 
-
+	// 키
 	for (map<string, list<Object*>>::iterator iter = EnableList.begin();
 		iter != EnableList.end(); ++iter)
 	{
+		// value
 		for (list<Object*>::iterator iter2 = iter->second.begin();
 			iter2 != iter->second.end(); )
 		{

@@ -19,11 +19,9 @@ public:
 		return Instance;
 	}
 
-	void AddObject(Object* Object);
+	void AddObject(string _Key);
 	list<Object*>* GetObjectList(string _Key);
 	list<Object*>::iterator ThrowObject(list<Object*>::iterator _Where, Object* _Object);
-
-
 	void Update();
 	void Render();
 

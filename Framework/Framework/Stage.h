@@ -6,6 +6,8 @@ class UserInterface;
 class Stage : public Scene
 {
 private:
+	Object* pPlayer;
+	Object* eEnemy;
 	UserInterface* pUI;
 	int Check;
 public:

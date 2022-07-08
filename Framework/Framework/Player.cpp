@@ -4,23 +4,26 @@
 #include "Bullet.h"
 #include "ObjectManager.h"
 #include "ObjectFactory.h"
+
 Player::Player() { }
 Player::Player(Transform _TransInfo) : Object(_TransInfo) { }
 Player::~Player() { }
 
-
-void Player::Initialize()
+Object* Player::Initialize(string _Key)
 {
-	strKey = "Player";
+	strKey = _Key;
 
+	//Buffer[0] = (char*)"──";
 	Buffer[0] = (char*)"오";
 	Buffer[1] = (char*)"ㅅ";
-
+	
 	TransInfo.Position = Vector3(20.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f);
 	TransInfo.Scale = Vector3(2.0f, 2.0f);
 
 	Color = 15;
+
+	return this;
 }
 
 int Player::Update()
@@ -41,7 +44,9 @@ int Player::Update()
 	
 	if (dwKey & KEY_SPACE)
 	{
-		ObjectManager::GetInstance()->AddObject(ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
+		// ObjectManager::GetInstance()->AddObject(ObjectFactory<Bullet>::CreateObject(TransInfo.Position));
+		ObjectManager::GetInstance()->AddObject("Bullet");
+		ObjectManager::GetInstance()->GetObjectList("Bullet")->back()->SetPosition(TransInfo.Position);
 	}
 
 	return 0;
@@ -62,3 +67,6 @@ void Player::Release()
 {
 
 }
+
+// 피타고라스 + 외적 내적
+// 

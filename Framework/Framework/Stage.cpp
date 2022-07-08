@@ -9,6 +9,8 @@
 #include "ObjectFactory.h"
 #include "InputManager.h"
 #include "ScrollBox.h"
+#include"ObjectPool.h"
+#include "Prototype.h"
 
 Stage::Stage() : Check() { }
 Stage::~Stage() { Release(); }
@@ -17,56 +19,60 @@ void Stage::Initialize()
 {
 	Check = 0;
 
-	Object* pEnemyProto = ObjectFactory<Enemy>::CreateObject();
-	// Object* pEnemyProto = new Enemy;
-	// pEnemyProto->Initialize();
-
-	pUI = new ScrollBox;
-	pUI->Initialize();
-
+	ObjectManager::GetInstance()->AddObject("Player");
+	// 한번만 실행시켜주면 되서 update에 있을 필요가없음
+	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 
 	for (int i = 0; i < 5; ++i)
 	{
 		srand(DWORD(GetTickCount64() * (i + 1)));
 
-		Object* pEnemy = pEnemyProto->Clone();
-		pEnemy->SetPosition(float(rand() % 118), float(rand() % 30));
+		ObjectManager::GetInstance()->AddObject("Enemy");
+		eEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->back();
 
-		ObjectManager::GetInstance()->AddObject(pEnemy);
+		eEnemy->SetPosition((float)(rand() % 118), (float)(rand() % 30));
 	}
 
+	pUI = new ScrollBox;
+	pUI->Initialize();
 }
 
 void Stage::Update()
 {
+	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
+	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
+
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
 	if (dwKey & KEY_TAB)
 	{
 		Enable_UI();
-
 	}
-	ObjectManager::GetInstance()->Update();
 
-	// stage에서 불러와서 사용하기 때문에 문제가 생기면 여기만 보면됨
-	Object* pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
-	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
-	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
+	if (dwKey & KEY_ESCAPE)
+	{
+		if (pBulletList->size())
+		{
+			ObjectPool::GetInstance()->CatchObject(pBulletList->back());
+			pBulletList->pop_back();
+		}
+	}
+
+	// pPlayer->Update();
+	ObjectManager::GetInstance()->Update();
 
 	if (pBulletList != nullptr)
 	{
 		for (list<Object*>::iterator iter = pBulletList->begin();
-			iter != pBulletList->end();)
+			iter != pBulletList->end(); )
 		{
 			if ((*iter)->GetPosition().x >= 120.0f)
-			{
 				iter = pBulletList->erase(iter);
-			}
 			else
 				++iter;
 		}
 	}
-	
+
 	if (pPlayer != nullptr)
 	{
 		if (pEnemyList != nullptr)
@@ -80,10 +86,13 @@ void Stage::Update()
 				if (pBulletList != nullptr)
 				{
 					for (list<Object*>::iterator Bulletiter = pBulletList->begin();
-						Bulletiter != pBulletList->end();)
+						Bulletiter != pBulletList->end(); )
 					{
 						if (CollisionManager::RectCollision(*Bulletiter, *Enemyiter))
+						{
 							Bulletiter = ObjectManager::GetInstance()->ThrowObject(Bulletiter, (*Bulletiter));
+							CursorManager::GetInstance()->WriteBuffer(50.0f, 1.0f, (char*)"충돌입니다");
+						}
 						else
 							++Bulletiter;
 					}
@@ -113,3 +122,4 @@ void Stage::Enable_UI()
 {
 	Check = !Check;
 }
+

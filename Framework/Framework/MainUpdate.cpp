@@ -2,15 +2,15 @@
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "CursorManager.h"
-// cpp에 헤더를 넣는 이유는 필오없는 헤더까지 사용할수있어서
+#include "Prototype.h"
 
 MainUpdate::MainUpdate()  { }
 MainUpdate::~MainUpdate() { Release(); }
 
 void MainUpdate::Initialize()
 {
+	Prototype::GetInstance()->initialize();
 	CursorManager::GetInstance()->CreateBuffer(ConsoleWidthSize, ConsoleHeightSize);
-	
 	SceneManager::GetInstance()->SetScene(LOGO);
 }
 

@@ -2,6 +2,9 @@
 #include "CollisionManager.h"
 #include "Object.h"
 #include "ObjectPool.h"
+#include "ObjectFactory.h"
+#include "Bullet.h"
+#include "Prototype.h"
 
 ObjectManager* ObjectManager::Instance = nullptr;
 ObjectManager::ObjectManager() 
@@ -10,43 +13,58 @@ ObjectManager::ObjectManager()
 }
 ObjectManager::~ObjectManager() { }
 
-void ObjectManager::AddObject(Object* _Object)
+// 키값을 전달받아서
+void ObjectManager::AddObject(string _Key)
 {
-	// ObjectList
-	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
+	// pObject에 DisableList에 저장된 주소값을 가져와서 넣음
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
 
+	// pObject에 아무것도 없으면 clone을 만들어줌
+	if (pObject == nullptr)
+		pObject = Prototype::GetInstance()->PrototypeObject(_Key)->Clone();
+
+	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+
+	// 똑같이 EnableList에 공간 없으면 만들어주고 있으면 그냥 넣음
 	if (iter == EnableList->end())
 	{
 		list<Object*> TempList;
-		TempList.push_back(_Object);
-		// ObjectPool::GetInstance()->AddObject(_Object->GetKey(), TempList);
-		EnableList->insert(make_pair(_Object->GetKey(), TempList));
-		// ObjectPool::GetInstance()->AddObject(_Object);
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
 	}
 	else
-		iter->second.push_back(_Object);
-		// ObjectPool::GetInstance()->AddObject(_Object);
+		iter->second.push_back(pObject);
 }
+
 
 list<Object*>* ObjectManager::GetObjectList(string _strKey)
 {
+	// EnableList의 키 찾기
 	map<string, list<Object*>>::iterator iter = EnableList->find(_strKey);
 
+	// EnableList의 키가 마지막 지점일때
 	if (iter == EnableList->end())
+		// nullptr 반환
 		return nullptr;
 
+	// value 주소값을 반환
 	return  &iter->second;
 	
 }
 
+// 위치와 주소값을 받아옴
 list<Object*>::iterator ObjectManager::ThrowObject(list<Object*>::iterator _Where, Object* _Object)
 {
+	// EnableList의 키값을 iter에 넣음
 	map<string, list<Object*>>::iterator iter = EnableList->find(_Object->GetKey());
 
+	// EnableList가 마지막 지점일때 위치 반환
 	if (iter == EnableList->end())
 		return _Where;
 
+	// CatchObject를 실행 ObjectPool에 전달
 	ObjectPool::GetInstance()->CatchObject(_Object);
+	// EnableList에서 삭제
 	return iter->second.erase(_Where);
 }
 

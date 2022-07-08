@@ -5,9 +5,9 @@ Bullet::Bullet() { }
 Bullet::Bullet(Transform _TransInfo) : Object(_TransInfo) { }
 Bullet::~Bullet() { }
 
-void Bullet::Initialize()
+Object* Bullet::Initialize(string _Key)
 {
-	strKey = "Bullet"; // 포인터아님 2바이트짜리 특수문자임
+	strKey = _Key; // 포인터아님 2바이트짜리 특수문자임
 
 	Buffer[0] = (char*)"타";
 	Buffer[1] = (char*)"ㅇ";
@@ -18,6 +18,9 @@ void Bullet::Initialize()
 	TransInfo.Direction = Vector3(0.0f, 0.0f);
 
 	Color = 15;
+
+	return this;
+
 }
 
 int Bullet::Update()

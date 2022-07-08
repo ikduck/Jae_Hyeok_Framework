@@ -16,7 +16,7 @@ Logo::~Logo() { }
 
 void Logo::Initialize()
 {
-	ObjectManager::GetInstance()->AddObject(ObjectFactory<Player>::CreateObject());
+	// ObjectManager::GetInstance()->AddObject(ObjectFactory<Player>::CreateObject());
 	// Object* pPlayer = new Player;
 	// pPlayer->Initialize();
 	// ObjectManager::GetInstance()->AddObject(pPlayer);
@@ -38,11 +38,7 @@ void Logo::Update()
 
 void Logo::Render()
 {
-	CursorManager::GetInstance()->WriteBuffer( 0 ,0, 
-	(char*) " ", 8
 
-	);
-	
 }
 
 void Logo::Release()
