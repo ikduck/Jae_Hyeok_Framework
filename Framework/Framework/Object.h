@@ -1,6 +1,7 @@
 #pragma once
 #include "Headers.h"
 
+class Bridge;
 class Object
 {
 protected:
@@ -10,8 +11,8 @@ protected:
 
 	Transform TransInfo;
 	string strKey;
-	int Color;
 	char* Buffer[MAX_SIZE];
+	Bridge* pBridge; 
 public:
 	virtual Object* Initialize(string _Key)PURE;
 	virtual int Update()PURE;
@@ -28,6 +29,9 @@ public:
 
 	Vector3 GetScale() const { return TransInfo.Scale; }
 	void SetScale(float _x, float _y) { TransInfo.Scale = Vector3(_x, _y); }
+
+	void SetBridge(Bridge* _Bridge) { pBridge = _Bridge; }
+
 public:
 	Object();
 	Object(Transform _TransInfo);

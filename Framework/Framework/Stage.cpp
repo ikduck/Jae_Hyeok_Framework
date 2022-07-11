@@ -11,6 +11,8 @@
 #include "ScrollBox.h"
 #include"ObjectPool.h"
 #include "Prototype.h"
+#include "PlayerChar1.h"
+#include "Enemy1.h"
 
 Stage::Stage() : Check() { }
 Stage::~Stage() { Release(); }
@@ -19,7 +21,8 @@ void Stage::Initialize()
 {
 	Check = 0;
 
-	ObjectManager::GetInstance()->AddObject("Player");
+	Bridge* pBridge = new PlayerChar1;
+	ObjectManager::GetInstance()->AddObject("Player", pBridge);
 	// 한번만 실행시켜주면 되서 update에 있을 필요가없음
 	pPlayer = ObjectManager::GetInstance()->GetObjectList("Player")->front();
 
@@ -27,7 +30,9 @@ void Stage::Initialize()
 	{
 		srand(DWORD(GetTickCount64() * (i + 1)));
 
-		ObjectManager::GetInstance()->AddObject("Enemy");
+		// ObjectManager::GetInstance()->AddObject("Enemy");
+		Bridge* pBridge = new Enemy1;
+		ObjectManager::GetInstance()->AddObject("Enemy", pBridge);
 		eEnemy = ObjectManager::GetInstance()->GetObjectList("Enemy")->back();
 
 		eEnemy->SetPosition((float)(rand() % 118), (float)(rand() % 30));
@@ -35,10 +40,14 @@ void Stage::Initialize()
 
 	pUI = new ScrollBox;
 	pUI->Initialize();
+
+
 }
 
 void Stage::Update()
 {
+
+
 	list<Object*>* pBulletList = ObjectManager::GetInstance()->GetObjectList("Bullet");
 	list<Object*>* pEnemyList = ObjectManager::GetInstance()->GetObjectList("Enemy");
 
@@ -66,7 +75,7 @@ void Stage::Update()
 		for (list<Object*>::iterator iter = pBulletList->begin();
 			iter != pBulletList->end(); )
 		{
-			if ((*iter)->GetPosition().x >= 120.0f)
+			if ((*iter)->GetPosition().y <= 0.0f)
 				iter = pBulletList->erase(iter);
 			else
 				++iter;
@@ -123,3 +132,12 @@ void Stage::Enable_UI()
 	Check = !Check;
 }
 
+// 총맞았을때 몬스터 지워지게 하는법
+
+// 충돌해야되는 것들
+// 1. 아이템과 플레이어의 충돌
+// 2. 적과 플레이어의 충돌
+// 3. 적과 플레이어 총알의 충돌
+// 4. 적의 총알과 플레이어의 충돌
+// 충돌하면 안되는 것들
+// 

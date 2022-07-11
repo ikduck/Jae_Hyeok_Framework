@@ -88,6 +88,30 @@
     <Filter Include="소스 파일\98.Pattern\Prototype">
       <UniqueIdentifier>{0f312ac6-0636-4912-ba97-9409b8ff0467}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\98.Pattern\Bridge">
+      <UniqueIdentifier>{c4bf604c-6ac4-4c2b-9979-42708217d9de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge">
+      <UniqueIdentifier>{fd3b7841-3e48-461a-8e94-529880b8b2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\NormalBullet">
+      <UniqueIdentifier>{d4029f7b-a2dd-4275-abf6-e2cb66e9d17c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Bullet\BulletBridge\RedBullet">
+      <UniqueIdentifier>{f670800b-f3f5-4170-aaa0-d8b404ca402b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Player\PlayerBridge">
+      <UniqueIdentifier>{774177ec-b774-4d3f-97ff-3581888723be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Player\PlayerBridge\PlayerChar1">
+      <UniqueIdentifier>{8ed85a5d-34cf-489a-8cf5-94274f095a6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge">
+      <UniqueIdentifier>{0448b609-46be-4e79-aae6-3c5b8b648249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy\EnemyBridge\Enemy1">
+      <UniqueIdentifier>{b3df4f2a-443f-461d-912c-dc3f788bb600}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -149,6 +173,18 @@
     </ClCompile>
     <ClCompile Include="Prototype.cpp">
       <Filter>소스 파일\98.Pattern\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalBullet.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="RedBullet.cpp">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\RedBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerChar1.cpp">
+      <Filter>소스 파일\02. Object\Player\PlayerBridge\PlayerChar1</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy1.cpp">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Enemy1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +268,30 @@
     </ClInclude>
     <ClInclude Include="Prototype.h">
       <Filter>소스 파일\98.Pattern\Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="Bridge.h">
+      <Filter>소스 파일\98.Pattern\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBridge.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalBullet.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\NormalBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="RedBullet.h">
+      <Filter>소스 파일\02. Object\Bullet\BulletBridge\RedBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerChar1.h">
+      <Filter>소스 파일\02. Object\Player\PlayerBridge\PlayerChar1</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBridge.h">
+      <Filter>소스 파일\02. Object\Player\PlayerBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBridge.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy1.h">
+      <Filter>소스 파일\02. Object\Enemy\EnemyBridge\Enemy1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

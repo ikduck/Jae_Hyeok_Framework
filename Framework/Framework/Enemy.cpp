@@ -1,22 +1,24 @@
 #include "Enemy.h"
 #include "CursorManager.h"
+#include "Bridge.h"
 
 Enemy::Enemy() { }
 Enemy::Enemy(Transform _TransInfo) : Object(_TransInfo) { }
-Enemy::~Enemy() { }
+Enemy::~Enemy() { Release(); }
 
 Object* Enemy::Initialize(string _Key)
 {
 	strKey = _Key;
 
-	Buffer[0] = (char*)"호";
-	Buffer[1] = (char*)"ㅅ";
+	// Buffer[0] = (char*)"호";
+	// Buffer[1] = (char*)"ㅅ";
 
 	TransInfo.Position = Vector3(0.0f, 15.0f);
 	TransInfo.Rotation = Vector3(0.0f, 0.0f); 
- 	TransInfo.Scale = Vector3((float)strlen(Buffer[0]),(float)MAX_SIZE);
+ 	// TransInfo.Scale = Vector3((float)strlen(Buffer[0]),(float)MAX_SIZE);
+	TransInfo.Scale = Vector3(2.0f, 2.0f);
 	TransInfo.Direction = Vector3(0.0f, 0.0f);
-	Color = 12;
+
 
 	return this;
 }
@@ -25,26 +27,25 @@ Object* Enemy::Initialize(string _Key)
 int Enemy::Update()
 {
 	// TransInfo.Position.x -= 2;
-	
+	/*
 	 if (TransInfo.Position.x <= 0)
 	 	return BUFFER_OVER;
+	*/
+	if (pBridge)
+		pBridge->Update(TransInfo);
 
 	return 0;
 }
 
 void Enemy::Render()
-{
-	for(int  i = 0 ; i < 2; ++i)
-	{
-	CursorManager::GetInstance()->WriteBuffer(
-		TransInfo.Position.x,
-		TransInfo.Position.y+ i ,
-		Buffer[i], Color);
-	}
+{	
+	if (pBridge)
+		pBridge->Render();
 }
 
 void Enemy::Release()
 {
+	::Safe_Delete(pBridge);
 }
 
 // 삭제방법은 여러가지가 있음 - stage에서 지울수도있고 

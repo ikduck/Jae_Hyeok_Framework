@@ -1,4 +1,4 @@
-// *** Framework v11.0	( MathManager )
+// *** Framework v14.0	( Bridge )
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
@@ -41,7 +41,7 @@ cout << c.Num << endl;
 
 int main(void)
 {
-	system("title ±èÀçÇõ - 1945");	
+	system("title ±èÀçÇõ - °ÔÀÓ¸í");	
 	system("mode con cols=120 lines=30");
 
 	MainUpdate Main;

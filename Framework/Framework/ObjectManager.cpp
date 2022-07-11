@@ -5,6 +5,7 @@
 #include "ObjectFactory.h"
 #include "Bullet.h"
 #include "Prototype.h"
+#include "Bridge.h"
 
 ObjectManager* ObjectManager::Instance = nullptr;
 ObjectManager::ObjectManager() 
@@ -13,7 +14,6 @@ ObjectManager::ObjectManager()
 }
 ObjectManager::~ObjectManager() { }
 
-// 키값을 전달받아서
 void ObjectManager::AddObject(string _Key)
 {
 	// pObject에 DisableList에 저장된 주소값을 가져와서 넣음
@@ -36,6 +36,29 @@ void ObjectManager::AddObject(string _Key)
 		iter->second.push_back(pObject);
 }
 
+void ObjectManager::AddObject(string _Key, Bridge* _Bridge)
+{
+	Object* pObject = ObjectPool::GetInstance()->ThrowObject(_Key);
+
+	if (pObject == nullptr)
+		pObject = Prototype::GetInstance()->PrototypeObject(_Key)->Clone();
+
+	map<string, list<Object*>>::iterator iter = EnableList->find(_Key);
+
+	_Bridge->Initialize();
+	_Bridge->SetObject(pObject);
+
+	pObject->SetBridge(_Bridge);
+
+	if (iter == EnableList->end())
+	{
+		list<Object*> TempList;
+		TempList.push_back(pObject);
+		EnableList->insert(make_pair(pObject->GetKey(), TempList));
+	}
+	else
+		iter->second.push_back(pObject);
+}
 
 list<Object*>* ObjectManager::GetObjectList(string _strKey)
 {

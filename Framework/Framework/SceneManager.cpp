@@ -9,6 +9,7 @@ SceneManager* SceneManager::Instance = nullptr;
 SceneManager::SceneManager() : SceneState(nullptr) { }
 SceneManager::~SceneManager() { Release(); }
 
+// 상태 매니저 (상태확인 패턴)
 void SceneManager::SetScene(SCENEID _SceneState)
 {
 	if (SceneState != nullptr)

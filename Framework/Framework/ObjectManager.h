@@ -2,6 +2,7 @@
 #include "Headers.h"
 
 class Object;
+class Bridge;
 class ObjectManager
 {
 private:
@@ -20,6 +21,7 @@ public:
 	}
 
 	void AddObject(string _Key);
+	void AddObject(string _Key, Bridge* _Bridge);
 	list<Object*>* GetObjectList(string _Key);
 	list<Object*>::iterator ThrowObject(list<Object*>::iterator _Where, Object* _Object);
 	void Update();

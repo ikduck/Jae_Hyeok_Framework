@@ -5,7 +5,7 @@ class Scene;
 class SceneManager
 {
 private:
-
+	// ΩÃ±€≈Ê ∆–≈œ
 	static SceneManager* Instance; 
 public:
 	static SceneManager* GetInstance()
